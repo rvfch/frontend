@@ -7,13 +7,13 @@ import {
   FILE_UPLOAD_SUCCESS,
 } from '../store/features/files.slice';
 
-const PREFIX = 'files';
+const ENDPOINT = '/files';
 
 export const upload = (dtoIn: FormData) => async (dispatch: AppDispatch) => {
   // FILE_UPLOAD_REQUEST
   dispatch(FILE_UPLOAD_REQUEST());
   try {
-    const response = await Calls.post(PREFIX + '/upload', dtoIn, {
+    const response = await Calls.post(ENDPOINT + '/upload', dtoIn, {
       headers: {
         'Content-Type': 'multipart/form-data',
       },

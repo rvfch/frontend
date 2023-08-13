@@ -21,13 +21,13 @@ import {
 } from '../store/features/auth.slice';
 import { ITenantRequest } from './interface/tenant-request.interface';
 
-const PREFIX = 'auth';
+const ENDPOINT = '/auth';
 
 export const login = (dtoIn: ILoginRequest) => async (dispatch: AppDispatch) => {
   // LOGIN_REQUEST
   dispatch(LOGIN_REQUEST());
   try {
-    const response = await Calls.post(PREFIX + '/login', dtoIn);
+    const response = await Calls.post(ENDPOINT + '/login', dtoIn);
     // LOGIN_SUCCESS
     dispatch(LOGIN_SUCCESS(response.data));
 
@@ -44,7 +44,7 @@ export const login = (dtoIn: ILoginRequest) => async (dispatch: AppDispatch) => 
 export const initTenant = (dtoIn: ITenantRequest) => async (dispatch: AppDispatch) => {
   dispatch(TENANT_INIT_REQUEST());
   try {
-    const response = await Calls.post(PREFIX + '/initTenant', dtoIn);
+    const response = await Calls.post(ENDPOINT + '/initTenant', dtoIn);
 
     dispatch(TENANT_INIT_SUCCESS(response.data));
 
@@ -59,7 +59,7 @@ export const initTenant = (dtoIn: ITenantRequest) => async (dispatch: AppDispatc
 
 export const getUser = () => async (dispatch: AppDispatch) => {
   try {
-    const response = await Calls.get(PREFIX + '/me');
+    const response = await Calls.get(ENDPOINT + '/me');
     dispatch(CHECK_IF_AUTHENTICATED(response.data));
 
     return response.data;
@@ -76,7 +76,7 @@ export const signup = (dtoIn: ISignupRequest) => async (dispatch: AppDispatch) =
   // SIGNUP_REQUEST
   dispatch(SIGNUP_REQUEST());
   try {
-    const response = await Calls.post(PREFIX + '/signup', dtoIn);
+    const response = await Calls.post(ENDPOINT + '/signup', dtoIn);
     // SIGNUP_SUCCESS
     dispatch(SIGNUP_SUCCESS(response.data));
 
@@ -94,7 +94,7 @@ export const logout = () => async (dispatch: AppDispatch) => {
   // LOGOUT_REQUEST
   dispatch(LOGOUT_REQUEST());
   try {
-    const response = await Calls.post(PREFIX + '/logout');
+    const response = await Calls.post(ENDPOINT + '/logout');
     // LOGOUT_SUCCESS
     dispatch(LOGOUT_SUCCESS(response.data));
 
@@ -112,7 +112,7 @@ export const refreshAccess =
   () =>
   async (dispatch: AppDispatch): Promise<string | undefined> => {
     try {
-      const response = await Calls.post(PREFIX + '/refresh-access');
+      const response = await Calls.post(ENDPOINT + '/refresh-access');
 
       // REFRESH_TOKEN_SUCCESS
       dispatch(REFRESH_TOKEN_SUCCESS(response.data));

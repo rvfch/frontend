@@ -2,12 +2,6 @@ import TLink from './core/TenantLink';
 import { IArticle } from '../api/interface/article.interface';
 
 export const Article: React.FC<IArticle> = (article: IArticle) => {
-  // const dispatch = useAppDispatch();
-
-  // const handleArticleDetail = (): void => {
-  //   dispatch(SELECT_ARTICLE(article));
-  // };
-
   return (
     <div className='flex mb-5'>
       <img
