@@ -1,0 +1,32 @@
+a {
+    transition: ease 0.5s;
+    color: rgba(59, 130, 246, 1.0);
+}
+
+a:hover {
+    transition: ease 0.5s;
+    color: rgba(59, 130, 246, 0.8);
+}
+
+.dialog-enter {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+  
+.dialog-enter-active {
+    transform: scale(1);
+    opacity: 1;
+    transition: all 300ms;
+}
+
+.dialog-exit {
+    transform: scale(1);
+    opacity: 1;
+}
+
+.dialog-exit-active {
+    transform: scale(0.9);
+    opacity: 0;
+    transition: all 300ms;
+}
+
