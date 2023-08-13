@@ -1,5 +1,7 @@
 import React from 'react';
 import { IArticle } from '../api/interface/article.interface';
+import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
 
 const ArticleContent: React.FC<IArticle> = ({ title, user, createdAt, content, imageUrl }) => {
   return (
@@ -9,7 +11,9 @@ const ArticleContent: React.FC<IArticle> = ({ title, user, createdAt, content, i
         {user?.name} - {createdAt}
       </p>
       <img className='w-full h-auto mb-4' src={imageUrl || '/images/noimage.png'} alt={title} />
-      <p className='mb-4 break-words'>{content}</p>
+      <article className='mb-4 prose prose-slate'>
+        <ReactMarkdown children={content || ''} remarkPlugins={[remarkGfm]}></ReactMarkdown>
+      </article>
     </>
   );
 };

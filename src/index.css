@@ -23,3 +23,7 @@
   -webkit-overflow-scrolling: touch;
 }
 
+.markdown > * {
+  all: revert;
+}
+

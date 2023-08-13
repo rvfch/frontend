@@ -1,6 +1,8 @@
 import { FC } from 'react';
 import { Controller, useFormContext } from 'react-hook-form';
-import { Textarea, TextInput, Label } from 'flowbite-react';
+import { TextInput, Label } from 'flowbite-react';
+import MDEditor from '@uiw/react-md-editor';
+import rehypeSanitize from 'rehype-sanitize';
 
 type FormInputProps = {
   name: string;
@@ -34,9 +36,16 @@ const FormInput: FC<FormInputProps> = ({
         defaultValue=''
         render={({ field }) =>
           type === 'textarea' ? (
-            <Textarea
+            <MDEditor
               {...field}
+              autoFocus
               id={name}
+              value={field.value}
+              previewOptions={{
+                rehypePlugins: [[rehypeSanitize]],
+              }}
+              onChange={(editorValue) => field.onChange(editorValue || '')}
+              onBlur={field.onBlur}
               placeholder={placeholder}
               className='mt-2 mb-2 h-60 bg-white focus:border-blue-500 transition-colors duration-300 ease-in-out w-full outline-none text-gray-800'
             />

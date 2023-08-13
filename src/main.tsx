@@ -14,6 +14,7 @@ import { GraphQlProvider } from './components/core/providers/GraphqlProvider';
 
 const root = createRoot(document.getElementById('root') as HTMLElement);
 Modal.setAppElement('#root');
+document.documentElement.setAttribute('data-color-mode', 'light');
 
 root.render(
   <React.StrictMode>
