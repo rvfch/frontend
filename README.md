@@ -1,27 +1,81 @@
-# React + TypeScript + Vite
+<center><h1>🚀 NestJS multi-tenancy blog engine - FRONTEND 🚀</h1></center>
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Description
+A blog engine frontend created for the [Applifting](https://applifting.cz/) Full Stack Challenge. Explore [the assignment here](https://github.com/Applifting/fullstack-exercise).
 
-Currently, two official plugins are available:
+## Application overview
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Technologies used
+ - React + Typescript 
+ - Redux (for state management)
+ - Vite (for bundling)
+ - Apollo Client and GraphQL (for live comments)
+ - TailwindCSS + Flowbite (for styling)
+ - Axios (for API calls)
+ - Zod for validations
+ - Toast for notifications
+## Installation prerequisites
 
-## Expanding the ESLint configuration
+- Node.js v18.16.0
+- NPM
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Installation (LOCAL)
 
-- Configure the top-level `parserOptions` property like this:
-
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
+```bash
+# run npm install
+$ npm install
+# run app
+$ npm run dev
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+Default tenant ID is <b>8e70bd91-628b-4459-ae38-954e88efc974</b>, use it like ``http://localhost:3000/8e70bd91-628b-4459-ae38-954e88efc974``
+
+# Roadmap
+### User Perspective
+
+- [x] **Article List** 
+  - [x] display a list of all articles, ordered by date descending
+  - [x] each article should show title, perex and publication date
+  - [x] each article should have a link to the full text
+
+- [x] **Article View** 
+  - [x] display an article
+  - [x] article should be in markdown, take care of proper rendering
+
+- [x] **New Article View** 
+  - [x] display a page with form to add new article
+  - [x] the form should take title, perex and content
+  - [ ] the content should be in markdown, you can use some existing markdown editor
+  - [x] add necessary validations
+
+- [x] **Add Comment functionality**
+  - [x] display comments on Article View page
+  - [x] each comment should have content, timestamp and author
+  - [x] add comment form to Article View page
+  - [x] comment form should take author and content
+
+- [x] **Add Comment voting functionality**
+  - [x] add the ability to vote on comments (+/-)
+  - [x] display score on each comment
+
+### Admin Perspective
+
+- [x] **Login Screen** 
+  - [x] implement login
+  - [x] after successful login redirect to next screen
+  - [x] on unsuccessful login display error message
+
+- [x] **My Article List**
+  - [x] display table of all articles
+  - [x] display a button to create new article
+  - [x] implement edit and delete buttons
+
+- [x] **Article Detail View**
+  - [x] display editable sections of article
+  - [x] implement publish button
+  - [x] use some existing Markdown editor, unless you really want to implement your own
+
+## Stay in touch
+
+- Author - [Roman Filatov](https://github.com/rvfch)
+
